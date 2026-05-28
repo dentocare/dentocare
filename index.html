@@ -34,13 +34,17 @@ body{font-family:var(--fm);background:var(--bg);color:var(--tx);min-height:100vh
 #gs:focus{border-color:var(--ac)}
 .sdrop{position:absolute;top:100%;left:0;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rs);box-shadow:0 8px 24px rgba(4,52,44,.14);z-index:500;max-height:440px;overflow-y:auto;display:none;margin-top:4px;min-width:480px}
 .sdrop.open{display:block}
-.sri{padding:13px 16px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .1s}
+.sri{padding:12px 16px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .15s;display:flex;gap:12px;align-items:flex-start}
 .sri:last-child{border-bottom:none}
 .sri:hover{background:var(--t50)}
-.sri h4{font-size:14px;font-weight:600;color:var(--tx);margin-bottom:3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.sri p{font-size:12px;color:var(--txm);margin-top:2px}
-.sri .lv{font-size:12px;color:var(--ac);margin-top:3px;font-weight:500}
-.sri .nxt{font-size:12px;font-weight:600;color:#fff;background:var(--t800);padding:3px 10px;border-radius:20px;display:inline-block;margin-top:4px}
+.sri-av{width:38px;height:38px;min-width:38px;border-radius:50%;background:var(--t800);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;font-family:var(--fd);margin-top:2px}
+.sri-body{flex:1;min-width:0}
+.sri-name{font-size:14px;font-weight:700;color:var(--tx);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.sri-id{font-size:10px;color:var(--txm);background:var(--g100);padding:2px 7px;border-radius:10px;font-weight:500}
+.sri-meta{font-size:12px;color:var(--txm);margin-top:2px;display:flex;gap:10px;flex-wrap:wrap}
+.sri-meta span{display:inline-flex;align-items:center;gap:3px}
+.sri-last{font-size:11px;color:var(--t800);background:var(--t50);border-radius:6px;padding:4px 8px;margin-top:6px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.sri-next{font-size:11px;font-weight:600;color:#fff;background:#085041;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:4px;margin-top:5px}
 .af{font-size:10px;color:var(--r800);background:var(--r50);padding:1px 6px;border-radius:10px;font-weight:600}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--rs);font-family:var(--fm);font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .15s;white-space:nowrap}
 .bp{background:var(--ac);color:#fff}.bp:hover{background:var(--ad)}
@@ -165,9 +169,9 @@ tbody td{padding:12px 16px;font-size:13px}
   <div class="sb-brand"><h1>&#x1F9B7; DentoCare Pro</h1><span>Patient Management System</span></div>
   <div class="sb-nav">
     <div class="nav-sl">Main</div>
-    <div class="ni active" data-view="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</div>
+    <div class="ni active" data-view="dashboard" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</div>
     <div class="ni" data-view="patients"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Patients</div>
-    <div class="ni" data-view="appointments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Appointments<span class="nb" id="anb">0</span></div>
+    <div class="ni" data-view="appointments" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Appointments<span class="nb" id="anb">0</span></div>
     <div class="ni" data-view="schedule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="13" y2="18"/></svg>Schedule</div>
     <div class="nav-sl">Clinical</div>
     <div class="ni" data-view="treatments"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Treatment Log</div>
@@ -187,8 +191,8 @@ tbody td{padding:12px 16px;font-size:13px}
     <div class="tb-act">
       <div class="sw">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input type="text" id="gs" placeholder="Search patient by name or mobile&#x2026;" oninput="doSearch(this.value)" autocomplete="off"/>
-        <div class="sdrop" id="sdrop"></div>
+        <input type="text" id="gs" placeholder="Search patient by name or mobile&#x2026;" oninput="searchPts(this.value)" autocomplete="off"/>
+        <div class="sdrop" id="sdrop" style="display:none!important"></div>
       </div>
       <button class="btn bp" id="tadd" onclick="openAddPt()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add Patient</button>
     </div>
@@ -210,8 +214,9 @@ tbody td{padding:12px 16px;font-size:13px}
 
   <!-- PATIENTS -->
   <div class="view" id="view-patients">
-    <div class="sh2"><h3>All Patients</h3><select id="fst" onchange="renderPts()" style="border:1px solid var(--bd);border-radius:var(--rs);padding:6px 10px;font-size:13px;background:var(--sf);font-family:var(--fm)"><option value="">All Status</option><option value="Active">Active</option><option value="New">New</option></select></div>
-    <div class="ptw"><table><thead><tr><th>Patient Name</th><th>ID</th><th>Age/Gender</th><th>Contact</th><th>Last Visit</th><th>Status</th><th></th></tr></thead><tbody id="ptb"></tbody></table></div>
+    <div class="sh2"><h3>All Patients</h3><span id="pts-count" style="font-size:12px;color:var(--txm);font-weight:400;margin-left:6px"></span><div style="flex:1"></div><button id="pts-clear-btn" class="btn bg" onclick="clearPtSearch()" style="display:none;font-size:12px;padding:5px 12px">&#x2715; Clear search</button><select id="fst" onchange="_ptPage=1;renderPts()" style="border:1px solid var(--bd);border-radius:var(--rs);padding:6px 10px;font-size:13px;background:var(--sf);font-family:var(--fm)"><option value="">All Status</option><option value="Active">Active</option><option value="New">New</option></select></div>
+    <div class="ptw"><table><thead><tr><th>Patient Name</th><th>Contact</th><th>Last Visit</th><th></th></tr></thead><tbody id="ptb"></tbody></table></div>
+    <div id="pts-pagination" style="display:flex;align-items:center;justify-content:space-between;padding:12px 4px;flex-wrap:wrap;gap:8px"></div>
   </div>
 
   <!-- PATIENT DETAIL -->
@@ -248,7 +253,8 @@ tbody td{padding:12px 16px;font-size:13px}
           <div class="tl" id="tr-list"></div>
         </div>
         <div class="fp" id="tab-ap">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><span style="font-size:13px;color:var(--txm)">Appointment History</span><button class="btn bp" onclick="bookApptForPatient()" style="padding:6px 12px;font-size:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Book Appointment</button></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><span style="font-size:13px;color:var(--txm)">Appointment History</span><button class="btn bg" onclick="printPatientAppts()" style="padding:6px 12px;font-size:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button>
+              <button class="btn bp" onclick="bookApptForPatient()" style="padding:6px 12px;font-size:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Book Appointment</button></div>
           <div id="pt-ap"></div>
         </div>
         <div class="fp" id="tab-py"><div id="pt-py"></div></div>
@@ -357,11 +363,16 @@ tbody td{padding:12px 16px;font-size:13px}
 .sched-slot{padding:6px 7px;border-bottom:1px solid #eef5f2;cursor:pointer;transition:background .1s;min-height:48px;display:flex;flex-direction:column;justify-content:center;position:relative}
 .sched-slot.available{background:#fff}
 .sched-slot.available:hover{background:#e8f7f1}
-.sched-slot.booked{background:#5DCAA5;cursor:pointer}
-.sched-slot.booked:hover{background:#3db88e}
-.sched-slot.booked .sched-slot-time{color:#04342C}
-.sched-slot.booked .sched-slot-name{color:#04342C}
-.sched-slot.booked .sched-slot-tx{color:#085041}
+.sched-slot.booked{background:#5DCAA5;cursor:default}
+.sched-slot.doc-0,.sched-slot.doc-0:hover{background:#3B82C4 !important;}
+.sched-slot.doc-0 .sched-slot-time,.sched-slot.doc-0 .sched-slot-name,.sched-slot.doc-0 .sched-slot-tx{color:#fff !important;}
+.sched-slot.doc-1,.sched-slot.doc-1:hover{background:#E07B2A !important;}
+.sched-slot.doc-1 .sched-slot-time,.sched-slot.doc-1 .sched-slot-name,.sched-slot.doc-1 .sched-slot-tx{color:#fff !important;}
+.sched-slot.doc-other,.sched-slot.doc-other:hover{background:#5DCAA5 !important;}
+.sched-slot.past-doc-0{background:#93BAE0 !important;opacity:.85;}
+.sched-slot.past-doc-1{background:#F0BAA0 !important;opacity:.85;}
+.sched-slot.past-doc-other{background:#9FE1CB !important;opacity:.85;}
+
 .sched-slot.past-slot{background:#fafafa;opacity:.7}
 .sched-slot.past-booked{background:#9FE1CB;opacity:.85;cursor:pointer}
 .sched-slot.past-booked .sched-slot-time{color:#085041}
@@ -387,6 +398,7 @@ tbody td{padding:12px 16px;font-size:13px}
 
   <!-- SCHEDULE -->
   <div class="view" id="view-schedule">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px"><button class="btn bg" onclick="showView('patients')" style="padding:6px 14px;font-size:13px;display:inline-flex;align-items:center;gap:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="15 18 9 12 15 6"/></svg>Patients</button></div>
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
       <div style="display:flex;align-items:center;gap:8px">
         <button class="btn bg" onclick="schedMove(-1)" style="padding:7px 14px;font-size:13px">&#x2190; Prev</button>
@@ -400,9 +412,11 @@ tbody td{padding:12px 16px;font-size:13px}
           <option>Dr. Harish Sane</option>
           <option>Dr. ABC</option>
         </select>
-        <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--txm)">
-          <span style="display:inline-block;width:12px;height:12px;background:#E1F5EE;border:1px solid var(--t400);border-radius:3px"></span>Booked
-          <span style="display:inline-block;width:12px;height:12px;background:#fff;border:1px solid var(--bd);border-radius:3px;margin-left:6px"></span>Available
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--txm);flex-wrap:wrap">
+          <span style="display:inline-flex;align-items:center;gap:4px"><span style="display:inline-block;width:12px;height:12px;background:#3B82C4;border-radius:3px"></span>Dr. Harish Sane</span>
+          <span style="display:inline-flex;align-items:center;gap:4px"><span style="display:inline-block;width:12px;height:12px;background:#E07B2A;border-radius:3px"></span>Dr. ABC</span>
+          <span style="display:inline-flex;align-items:center;gap:4px"><span style="display:inline-block;width:12px;height:12px;background:#5DCAA5;border-radius:3px"></span>Other / Unassigned</span>
+          <span style="display:inline-flex;align-items:center;gap:4px"><span style="display:inline-block;width:12px;height:12px;background:#fff;border:1px solid var(--bd);border-radius:3px"></span>Available</span>
         </div>
       </div>
     </div>
@@ -429,10 +443,18 @@ tbody td{padding:12px 16px;font-size:13px}
         <div class="fg"><label>Treatment *</label>
           <select id="qb-tx">
             <option value="">&#x2014; Select &#x2014;</option>
-            <option>Consultation</option><option>X-ray</option><option>Filling (Composite)</option>
-            <option>Root canal (Molar)</option><option>Root canal (Premolar)</option><option>Root canal (Anterior)</option>
-            <option>Extraction (Simple)</option><option>Scaling &amp; polishing</option>
-            <option>Crown (Ceramic)</option><option>Implant</option><option>Other</option>
+            <optgroup label="General"><option>Consultation</option><option>X-ray</option><option>Fluoride treatment</option></optgroup>
+            <optgroup label="Fillings"><option>Filling (Composite)</option><option>Filling (GIC)</option><option>Filling (ZOE)</option></optgroup>
+            <optgroup label="Endodontics"><option>Root canal (Anterior)</option><option>Root canal (Premolar)</option><option>Root canal (Molar)</option><option>Pulpectomy</option><option>Pulpotomy</option></optgroup>
+            <optgroup label="Oral surgery"><option>Extraction (Simple)</option><option>Surgical extraction</option></optgroup>
+            <optgroup label="Crowns"><option>Crown (Ceramic)</option><option>Crown (Metal)</option></optgroup>
+            <optgroup label="Bridges"><option>Bridge (Ceramic)</option><option>Bridge (Metal)</option></optgroup>
+            <optgroup label="Implants"><option>Implant</option></optgroup>
+            <optgroup label="Dentures"><option>Dentures &#x2014; RPD</option><option>Dentures &#x2014; RPD Flexible</option><option>Complete Dentures &#x2014; Ordinary</option><option>Complete Dentures &#x2014; Semi Imported</option><option>Complete Dentures &#x2014; Imported</option></optgroup>
+            <optgroup label="Periodontics"><option>Scaling &amp; polishing</option><option>Gum treatment</option><option>Curettage</option></optgroup>
+            <optgroup label="Cosmetic"><option>Bleaching / whitening</option><option>Veneers</option></optgroup>
+            <optgroup label="Orthodontics"><option>Braces (Metal)</option><option>Braces (Ceramic)</option><option>Aligners</option><option>Retainer</option></optgroup>
+            <optgroup label="Other"><option>Other</option></optgroup>
           </select>
         </div>
       </div>
@@ -670,19 +692,31 @@ tbody td{padding:12px 16px;font-size:13px}
         </div>
         <div class="fr" style="margin-bottom:14px">
           <div class="fg"><label>Qualification / Degree</label><input type="text" id="cfg-qual" placeholder="e.g. BDS, MDS (Orthodontics)"/></div>
+          <div class="fg"><label>Registration Number</label><input type="text" id="cfg-reg" placeholder="e.g. MH-12345"/></div>
+        </div>
+        <div class="fr" style="margin-bottom:14px">
           <div class="fg"><label>Clinic Phone</label><input type="text" id="cfg-phone" placeholder="e.g. +91 98765 43210"/></div>
+          <div class="fg"><label>Clinic Email</label><input type="text" id="cfg-email" placeholder="e.g. clinic@example.com"/></div>
         </div>
         <div class="fg" style="margin-bottom:14px"><label>Clinic Address</label><textarea id="cfg-addr" style="min-height:70px" placeholder="e.g. 101, Sunshine Plaza, MG Road, Pune - 411001"></textarea></div>
         <div class="fg" style="margin-bottom:14px">
-          <label>Logo URL <span style="font-size:10px;color:var(--txm);font-weight:400;text-transform:none">(paste a direct image link, or leave blank to use the tooth icon)</span></label>
-          <input type="text" id="cfg-logo" placeholder="https://your-logo-url.com/logo.png"/>
-          <div id="cfg-logo-preview" style="margin-top:8px;display:none"><img id="cfg-logo-img" style="max-height:60px;max-width:200px;border-radius:6px;border:1px solid var(--bd)" src=""/></div>
-        </div>
-        <div style="font-size:12px;color:var(--txm);background:var(--t50);border-radius:var(--rs);padding:10px 14px;margin-bottom:16px">
-          <strong>How to upload your logo:</strong> Upload your image to a free host like 
-          <a href="https://imgbb.com" target="_blank" style="color:var(--ac)">imgbb.com</a> or 
-          <a href="https://postimages.org" target="_blank" style="color:var(--ac)">postimages.org</a>, 
-          then paste the direct image URL above.
+          <label>Clinic Logo</label>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px">
+            <div id="cfg-logo-preview" style="width:80px;height:80px;border:2px dashed var(--bd);border-radius:8px;display:flex;align-items:center;justify-content:center;background:var(--bg);overflow:hidden;flex-shrink:0">
+              <img id="cfg-logo-img" style="max-width:76px;max-height:76px;object-fit:contain;display:none" src=""/>
+              <span id="cfg-logo-placeholder" style="font-size:28px">&#x1F9B7;</span>
+            </div>
+            <div style="flex:1;min-width:200px">
+              <label class="btn bp" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;font-size:13px;margin-bottom:8px">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Upload Logo from Computer
+                <input type="file" id="cfg-logo-file" accept="image/*" onchange="handleLogoUpload(this)" style="display:none"/>
+              </label>
+              <div style="font-size:11px;color:var(--txm);margin-bottom:6px">— or paste image URL below —</div>
+              <input type="text" id="cfg-logo" placeholder="https://raw.githubusercontent.com/..." oninput="previewLogo()" style="font-size:12px"/>
+              <button class="btn bg" onclick="clearLogo()" style="margin-top:6px;padding:4px 10px;font-size:11px">&#x2715; Remove Logo</button>
+            </div>
+          </div>
         </div>
         <button class="btn bp" onclick="saveClinicSettings()" style="padding:9px 24px">Save Settings</button>
         <div id="cfg-saved-msg" style="display:none;font-size:12px;color:#1D9E75;font-weight:600;margin-top:10px">&#x2713; Settings saved!</div>
@@ -690,6 +724,21 @@ tbody td{padding:12px 16px;font-size:13px}
     </div>
   </div>
 
+
+
+<!-- CONFIRM MODAL -->
+<div class="mo" id="confirmModal">
+  <div class="modal" style="max-width:420px">
+    <div class="mh"><h3 id="confirm-title">Confirm</h3></div>
+    <div style="padding:20px 24px">
+      <p id="confirm-msg" style="font-size:14px;color:var(--tx);line-height:1.6;margin:0"></p>
+    </div>
+    <div class="mf">
+      <button class="btn bg" id="confirm-cancel-btn" onclick="confirmModalCancel()">Cancel</button>
+      <button class="btn bp" id="confirm-ok-btn">Confirm</button>
+    </div>
+  </div>
+</div>
 
 <script>
 // ══════════════════════════════
@@ -777,12 +826,12 @@ function showErrBanner(msg){
 }
 
 // Map DB row -> app object
-function mapPt(r){ return {id:r.id,firstName:r.first_name,lastName:r.last_name,phone:r.phone||'',email:r.email||'',dob:r.dob||'',gender:r.gender||'',bloodGroup:r.blood_group||'',address:r.address||'',occupation:r.occupation||'',insurance:r.insurance||'',allergies:r.allergies||'',medications:r.medications||'',conditions:r.conditions||[],smoking:r.smoking||'No',alcohol:r.alcohol||'No',medicalNotes:r.medical_notes||'',lastVisit:r.last_visit||'',prevDentist:r.prev_dentist||'',chiefComplaint:r.chief_complaint||'',anxiety:r.anxiety||'None',dentalNotes:r.dental_notes||'',notes:r.notes||'',status:r.status||'New',createdAt:r.created_at};}
+function mapPt(r){ return {id:r.id,firstName:r.first_name,lastName:r.last_name,phone:r.phone||'',email:r.email||'',dob:r.dob||'',gender:r.gender||'',bloodGroup:r.blood_group||'',address:r.address||'',occupation:r.occupation||'',insurance:r.insurance||'',allergies:r.allergies||'',medications:r.medications||'',conditions:r.conditions||[],smoking:r.smoking||'No',alcohol:r.alcohol||'No',medicalNotes:r.medical_notes||'',lastVisit:r.last_visit||'',prevDentist:r.prev_dentist||'',chiefComplaint:r.chief_complaint||'',anxiety:r.anxiety||'None',dentalNotes:r.dental_notes||'',notes:r.notes||'',xray:r.xray||'No',status:r.status||'New',createdAt:r.created_at};}
 function mapTr(r){ return {id:r.id,pid:r.patient_id,type:r.type||'',tooth:r.tooth||'',date:r.date||'',cost:r.cost||'',dentist:r.dentist||'',payment:r.payment||'',notes:r.notes||'',followup:r.followup||'',createdAt:r.created_at};}
 function mapAp(r){ return {id:r.id,pid:r.patient_id,name:r.name||'',phone:r.phone||'',date:r.date||'',slot:r.slot||'',slotLabel:r.slot_label||'',doc:r.doc||'',treatment:r.treatment||'',teeth:r.teeth||[],notes:r.notes||'',status:r.status||'upcoming',createdAt:r.created_at};}
 
 // Map app object -> DB row
-function ptRow(d){ return {id:d.id,first_name:d.firstName,last_name:d.lastName,phone:d.phone,email:d.email,dob:d.dob,gender:d.gender,blood_group:d.bloodGroup,address:d.address,occupation:d.occupation,insurance:d.insurance,allergies:d.allergies,medications:d.medications,conditions:d.conditions,smoking:d.smoking,alcohol:d.alcohol,medical_notes:d.medicalNotes,last_visit:d.lastVisit,prev_dentist:d.prevDentist,chief_complaint:d.chiefComplaint,anxiety:d.anxiety,dental_notes:d.dentalNotes,notes:d.notes,status:d.status};}
+function ptRow(d){ return {id:d.id,first_name:d.firstName,last_name:d.lastName,phone:d.phone,email:d.email,dob:d.dob,gender:d.gender,blood_group:d.bloodGroup,address:d.address,occupation:d.occupation,insurance:d.insurance,allergies:d.allergies,medications:d.medications,conditions:d.conditions,smoking:d.smoking,alcohol:d.alcohol,medical_notes:d.medicalNotes,last_visit:d.lastVisit,prev_dentist:d.prevDentist,chief_complaint:d.chiefComplaint,anxiety:d.anxiety,dental_notes:d.dentalNotes,notes:d.notes,status:d.status,xray:d.xray}; }
 function trRow(d){ return {id:d.id,patient_id:d.pid,type:d.type,tooth:d.tooth,date:d.date,cost:d.cost,dentist:d.dentist,payment:d.payment,notes:d.notes,followup:d.followup};}
 function apRow(d){ return {id:d.id,patient_id:d.pid,name:d.name,phone:d.phone,date:d.date,slot:d.slot,slot_label:d.slotLabel,doc:d.doc,treatment:d.treatment,teeth:d.teeth,notes:d.notes,status:d.status};}
 
@@ -813,7 +862,7 @@ document.querySelectorAll('.ni').forEach(i=>i.addEventListener('click',()=>showV
 // ══════════════════════════════
 // HELPERS
 // ══════════════════════════════
-function age(d){if(!d)return'—';const b=new Date(d),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate()))a--;return a;}
+function age(d){if(!d||d===''||d==='undefined')return'';const b=new Date(d),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate()))a--;return a;}
 function fd(d){if(!d)return'—';return new Date(d+'T00:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});}
 function ini(p){return((p.firstName||'')[0]||'')+((p.lastName||'')[0]||'');}
 function toast(m,err=false){const el=document.getElementById('toast');document.getElementById('toast-msg').textContent=m;el.style.background=err?'#791F1F':'';el.classList.add('show');setTimeout(()=>{el.classList.remove('show');el.style.background='';},3500);}
@@ -841,7 +890,7 @@ function doSearch(val){
     return`<div class="sri" onclick="openPD('${p.id}');closeDrop();document.getElementById('gs').value=''">
       <h4>${p.firstName} ${p.lastName}${p.allergies?`<span class="af">&#x26A0; ${p.allergies}</span>`:''}
         <span style="font-size:11px;color:var(--txm);font-weight:400">${p.id}</span></h4>
-      <p>${age(p.dob)} yrs &#x00B7; ${p.gender||'&#x2014;'} &#x00B7; ${p.bloodGroup||'&#x2014;'} &#x00B7; ${p.phone||'&#x2014;'}</p>
+      <p>${p.dob?age(p.dob)+' yrs':''} &#x00B7; ${p.gender||'&#x2014;'} &#x00B7; ${p.bloodGroup||'&#x2014;'} &#x00B7; ${p.phone||'&#x2014;'}</p>
       ${last?`<p class="lv">&#x1F4CB; Last: ${fd(last.date)} &#x2014; ${last.type}${last.cost?' &#x00B7; &#x20B9;'+Number(last.cost).toLocaleString('en-IN'):''}${last.payment?' ('+last.payment+')':''}${allPaid>0?' &#x00B7; Total: &#x20B9;'+allPaid.toLocaleString('en-IN'):''}</p>`:''}
       ${nA?`<span class="nxt">&#x1F4C5; Next: ${fd(nA.date)} at ${nA.slotLabel} &#x2014; ${nA.treatment}</span>`:''}
     </div>`;
@@ -868,13 +917,87 @@ function rDash(){
   document.getElementById('d-appts').innerHTML=up.map(a=>{const d=new Date(a.date+'T00:00:00');return`<div class="ac2" onclick="showView('appointments')"><div class="atb"><div class="ad2">${d.toLocaleDateString('en-IN',{day:'numeric',month:'short'})}</div><div class="at">${a.slotLabel}</div></div><div><div style="font-weight:600;font-size:14px">${a.name}</div><div style="font-size:12px;color:var(--txm)">${a.treatment}${a.doc?' &#x00B7; '+a.doc:''}</div></div></div>`;}).join('')||'<div class="nd">No upcoming appointments.</div>';
 }
 
+var _ptSearch='';
+function clearPtSearch(){
+  _ptSearch='';
+  var gs=document.getElementById('gs');if(gs)gs.value='';
+  var btn=document.getElementById('pts-clear-btn');if(btn)btn.style.display='none';
+  renderPts();
+}
+function searchPts(val){
+  _ptSearch=val||'';
+  _ptPage=1;
+  var btn=document.getElementById('pts-clear-btn');
+  if(btn) btn.style.display=_ptSearch?'inline-flex':'none';
+  showView('patients');
+  renderPts();
+}
+var _ptPage = 1;
+var PT_PER_PAGE = 50;
+
 function renderPts(){
-  const sf=document.getElementById('fst')?.value||'';
-  let fl=_pts;if(sf)fl=fl.filter(p=>(p.status||'Active')===sf);
-  const tb=document.getElementById('ptb');if(!tb)return;
-  tb.innerHTML=fl.map(p=>{const trts=_trts.filter(t=>t.pid===p.id);const last=trts.length?trts[0]:null;
-    return`<tr onclick="openPD('${p.id}')"><td><div style="display:flex;align-items:center;gap:10px"><div class="av" style="width:34px;height:34px;font-size:13px">${ini(p)}</div><span style="font-weight:500">${p.firstName} ${p.lastName}</span></div></td><td style="color:var(--txm);font-size:12px">${p.id||'&#x2014;'}</td><td>${age(p.dob)} yrs / ${p.gender||'&#x2014;'}</td><td>${p.phone||'&#x2014;'}</td><td>${last?fd(last.date):(p.lastVisit?fd(p.lastVisit):'&#x2014;')}</td><td><span class="badge ${p.status==='New'?'bn':'ba'}">${p.status||'Active'}</span></td><td><button class="btn bg" style="padding:4px 10px;font-size:12px" onclick="event.stopPropagation();openPD('${p.id}')">View</button></td></tr>`;
-  }).join('')||'<tr><td colspan="7" class="nd">No patients found.</td></tr>';
+  var sf=document.getElementById('fst')?document.getElementById('fst').value||'':'';
+  var q=(_ptSearch||'').toLowerCase().trim();
+  var fl=_pts.slice();
+  if(sf) fl=fl.filter(function(p){return (p.status||'Active')===sf;});
+  if(q)  fl=fl.filter(function(p){return (p.firstName+' '+p.lastName+' '+(p.phone||'')+' '+(p.id||'')).toLowerCase().includes(q);});
+
+  var total=fl.length;
+  var totalPages=Math.max(1,Math.ceil(total/PT_PER_PAGE));
+  if(_ptPage>totalPages) _ptPage=1;
+
+  var start=(_ptPage-1)*PT_PER_PAGE;
+  var pageItems=fl.slice(start,start+PT_PER_PAGE);
+
+  // Count label
+  var lbl=document.getElementById('pts-count');
+  if(lbl){
+    var end=Math.min(start+PT_PER_PAGE,total);
+    lbl.textContent=total+' patient'+(total!==1?'s':'')+(q?' for "'+_ptSearch+'"':'')+
+      (total>PT_PER_PAGE?' (showing '+(start+1)+'–'+end+')':'');
+  }
+
+  // Rows
+  var tb=document.getElementById('ptb');if(!tb)return;
+  tb.innerHTML=pageItems.map(function(p){
+    var trts=_trts.filter(function(t){return t.pid===p.id;});
+    var last=trts.length?trts[0]:null;
+    return '<tr onclick="openPD(&quot;'+p.id+'&quot;)">'
+      +'<td><div style="display:flex;align-items:center;gap:10px">'
+        +'<div class="av" style="width:34px;height:34px;font-size:13px">'+ini(p)+'</div>'
+        +'<span style="font-weight:500">'+p.firstName+' '+p.lastName+'</span>'
+      +'</div></td>'
+      +'<td>'+(p.phone||'—')+'</td>'
+      +'<td>'+(last?fd(last.date):(p.lastVisit?fd(p.lastVisit):'—'))+'</td>'
+      +'<td><button class="btn bg" style="padding:4px 10px;font-size:12px" onclick="event.stopPropagation();openPD(&quot;'+p.id+'&quot;)">View</button></td>'
+      +'</tr>';
+  }).join('')||'<tr><td colspan="4" class="nd">No patients found.</td></tr>';
+
+  // Pagination controls
+  var pg=document.getElementById('pts-pagination');
+  if(!pg) return;
+  if(totalPages<=1){pg.innerHTML='';return;}
+  var btns='<div style="font-size:13px;color:var(--txm)">Page '+_ptPage+' of '+totalPages+'</div>';
+  btns+='<div style="display:flex;gap:6px">';
+  btns+='<button class="btn bg" style="padding:5px 12px;font-size:12px" '+((_ptPage===1)?'disabled':'onclick="ptGoPage(1)"')+'>&#x00AB; First</button>';
+  btns+='<button class="btn bg" style="padding:5px 12px;font-size:12px" '+((_ptPage===1)?'disabled':'onclick="ptGoPage('+(_ptPage-1)+')"')+'>&lsaquo; Prev</button>';
+  // Page number buttons (show up to 5 around current)
+  var s=Math.max(1,_ptPage-2), e=Math.min(totalPages,s+4);
+  for(var i=s;i<=e;i++){
+    btns+='<button class="btn '+(i===_ptPage?'bp':'bg')+'" style="padding:5px 10px;font-size:12px;min-width:32px" onclick="ptGoPage('+i+')">'+i+'</button>';
+  }
+  btns+='<button class="btn bg" style="padding:5px 12px;font-size:12px" '+((_ptPage===totalPages)?'disabled':'onclick="ptGoPage('+(_ptPage+1)+')"')+'>&rsaquo; Next</button>';
+  btns+='<button class="btn bg" style="padding:5px 12px;font-size:12px" '+((_ptPage===totalPages)?'disabled':'onclick="ptGoPage('+totalPages+')"')+'>&raquo; Last</button>';
+  btns+='</div>';
+  pg.innerHTML=btns;
+}
+
+function ptGoPage(n){
+  _ptPage=n;
+  renderPts();
+  // Scroll table to top
+  var ptw=document.querySelector('.ptw');
+  if(ptw) ptw.scrollTop=0;
 }
 
 function rTL(){
@@ -894,7 +1017,7 @@ function updBadge(){
 async function openPD(pid){
   PID=pid;
   const p=_pts.find(pt=>pt.id===pid);if(!p)return;
-  document.getElementById('d-bio').innerHTML=`<div class="av">${ini(p)}</div><div><h3>${p.firstName} ${p.lastName}</h3><p>${age(p.dob)} yrs &#x00B7; ${p.gender||'&#x2014;'} &#x00B7; ${p.bloodGroup||'&#x2014;'}</p><p style="margin-top:2px">${p.phone||''}</p></div>`;
+  document.getElementById('d-bio').innerHTML=`<div class="av">${ini(p)}</div><div><h3>${p.firstName} ${p.lastName}</h3><p>${p.dob?age(p.dob)+' yrs':''} &#x00B7; ${p.gender||'&#x2014;'} &#x00B7; ${p.bloodGroup||'&#x2014;'}</p><p style="margin-top:2px">${p.phone||''}</p></div>`;
   let al='';
   if(p.allergies)al+=`<div class="ab" style="background:var(--r50);border:1px solid #f7c1c1"><svg viewBox="0 0 24 24" fill="none" stroke="#E24B4A" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><p style="color:var(--r800)"><strong>Allergies:</strong> ${p.allergies}</p></div>`;
   if(p.conditions&&p.conditions.length)al+=`<div class="ab" style="background:var(--a50);border:1px solid #FAC775"><svg viewBox="0 0 24 24" fill="none" stroke="#BA7517" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><p style="color:var(--a800)"><strong>Conditions:</strong> ${p.conditions.join(', ')}</p></div>`;
@@ -937,11 +1060,34 @@ function rDTr(pid){
 }
 
 function rDAppts(pid){
-  const appts=_appts.filter(a=>a.pid===pid).sort((a,b)=>b.date.localeCompare(a.date));
-  const el=document.getElementById('pt-ap');if(!el)return;
-  const today=new Date().toISOString().split('T')[0];
-  el.innerHTML=appts.map(a=>{const d=new Date(a.date+'T00:00:00');const isCan=a.status==='cancelled';const isPast=a.date<today;
-    return`<div class="ac2" style="${isCan?'opacity:.6':''}"><div class="atb" style="${isCan||isPast?'background:var(--t600)':''}"><div class="ad2">${d.toLocaleDateString('en-IN',{day:'numeric',month:'short'})}</div><div class="at">${a.slotLabel}</div></div><div style="flex:1"><div style="font-weight:600;font-size:13px">${a.treatment}</div><div style="font-size:12px;color:var(--txm)">${a.doc}${a.teeth&&a.teeth.length?' &#x00B7; Tooth '+a.teeth.join(', '):''}</div></div><span class="badge ${isCan?'bc':isPast?'bpa':'bu'}">${isCan?'Cancelled':isPast?'Past':'Upcoming'}</span></div>`;
+  var appts=_appts.filter(function(a){return a.pid===pid;}).sort(function(a,b){return b.date.localeCompare(a.date);});
+  var el=document.getElementById('pt-ap');if(!el)return;
+  var today=new Date().toISOString().split('T')[0];
+  var nowM=new Date().getHours()*60+new Date().getMinutes();
+  el.innerHTML=appts.map(function(a){
+    var d=new Date(a.date+'T00:00:00');
+    var isCan=a.status==='cancelled';
+    var isPast=a.date<today||(a.date===today&&slotToMins(a.slot)<nowM);
+    var isUpcoming=!isCan&&!isPast;
+    var badgeCls=isCan?'bc':isPast?'bpa':'bu';
+    var badgeTxt=isCan?'Cancelled':isPast?'Past':'Upcoming';
+    var tbBg=isCan?'background:var(--g400)':isPast?'background:var(--t600)':'background:#085041';
+    return '<div class="ac2" style="'+(isCan?'opacity:.6;':'')+(isUpcoming?'border:1.5px solid var(--t400);':'')+'">'
+      +'<div class="atb" style="'+tbBg+'">'
+        +'<div class="ad2">'+d.toLocaleDateString('en-IN',{day:'numeric',month:'short'})+'</div>'
+        +'<div class="at">'+a.slotLabel+'</div>'
+      +'</div>'
+      +'<div style="flex:1;min-width:0">'
+        +'<div style="font-weight:600;font-size:13px">'+a.treatment+'</div>'
+        +'<div style="font-size:12px;color:var(--txm);margin-top:2px">'+(a.doc||'')+(a.teeth&&a.teeth.length?' · Tooth '+a.teeth.join(', '):'')+'</div>'
+        +(a.notes?'<div style="font-size:11px;color:var(--txm);font-style:italic;margin-top:2px">'+a.notes+'</div>':'')
+      +'</div>'
+      +'<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'
+        +'<span class="badge '+badgeCls+'">'+badgeTxt+'</span>'
+        +(!isCan?'<button class="btn bg" style="padding:3px 10px;font-size:11px;white-space:nowrap" onclick="openReschedule(&quot;'+a.id+'&quot;)">&#x1F501; Reschedule</button>':'')
+        +(!isCan&&!isPast?'<button class="btn bd2" style="padding:3px 8px;font-size:11px" onclick="cancelA(&quot;'+a.id+'&quot;)">Cancel</button>':'')
+      +'</div>'
+    +'</div>';
   }).join('')||'<div class="nd">No appointments for this patient.</div>';
 }
 
@@ -980,168 +1126,160 @@ function printHistory(){
 
 
 function openRxPrintWindow(p, rx){
-  var ageStr=p.dob?age(p.dob)+' yrs':'';
+  var cs=getClinicSettings();
+  var cName=cs.name||'DentoCare Pro';
+  var cDoc=cs.doctor||''; var cQual=cs.qual||''; var cReg=cs.reg||'';
+  var cPhone=cs.phone||''; var cEmail=cs.email||''; var cAddr=cs.addr||''; var cLogo=cs.logo||'';
   var doctorName=rx.dentist?rx.dentist.replace(/^Dr\.\s*/i,''):'';
+  // Use prescription doctor if clinic doctor not set
+  var displayDoc=cDoc||(doctorName?'Dr. '+doctorName:'');
   var w=window.open('','_blank');
-  w.document.write('<!DOCTYPE html><html><head><title>Prescription — '+p.firstName+' '+p.lastName+'</title>');
-  w.document.write('<style>');
-  w.document.write('body{font-family:Arial,sans-serif;font-size:13px;color:#1a2e28;padding:28px;max-width:600px;margin:0 auto}');
+  w.document.write('<!DOCTYPE html><html><head><title>Prescription<\/title><style>');
+  w.document.write('body{font-family:Arial,sans-serif;font-size:13px;color:#1a2e28;padding:28px;max-width:640px;margin:0 auto}');
   w.document.write('.box{border:2px solid #085041;border-radius:10px;padding:24px}');
-  w.document.write('.hdr{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid #cde0d8;padding-bottom:14px;margin-bottom:16px}');
-  w.document.write('.clinic-name{font-size:20px;font-weight:700;color:#085041}');
-  w.document.write('.clinic-sub{font-size:12px;color:#5f7a70;margin-top:2px}');
+  w.document.write('.hdr{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #085041;padding-bottom:14px;margin-bottom:16px;gap:16px}');
+  w.document.write('.cl{display:flex;align-items:flex-start;gap:14px}');
+  w.document.write('.logo{width:64px;height:64px;object-fit:contain;border-radius:8px}');
+  w.document.write('.cn{font-size:20px;font-weight:700;color:#085041}');
+  w.document.write('.cd{font-size:14px;font-weight:600;color:#1a2e28;margin-top:3px}');
+  w.document.write('.cq{font-size:12px;color:#5f7a70;margin-top:1px}');
+  w.document.write('.cc{font-size:11px;color:#5f7a70;margin-top:4px;line-height:1.6}');
   w.document.write('.pi{margin-bottom:14px;font-size:13px;line-height:1.9;background:#f4f9f7;border-radius:6px;padding:10px 14px}');
   w.document.write('.al{background:#FCEBEB;padding:6px 10px;border-radius:6px;font-size:12px;color:#791F1F;margin-bottom:12px}');
-  w.document.write('.rl{font-weight:700;font-size:15px;color:#085041;margin-bottom:10px;letter-spacing:.5px}');
   w.document.write('.rx-body{background:#f4f9f7;border-radius:6px;padding:14px;font-size:13px;line-height:2;white-space:pre-wrap;margin-bottom:14px}');
   w.document.write('.sig{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid #cde0d8;padding-top:14px;margin-top:20px}');
-  w.document.write('.sig-line{border-top:1px solid #1a2e28;width:180px;padding-top:4px;font-size:11px;color:#5f7a70;text-align:center}');
+  w.document.write('.sig-name{font-size:13px;font-weight:600;color:#1a2e28}');
+  w.document.write('.sig-qual{font-size:11px;color:#5f7a70;margin-top:2px}');
+  w.document.write('.sl{border-top:1px solid #1a2e28;width:180px;padding-top:4px;font-size:11px;color:#5f7a70;text-align:center}');
   w.document.write('@media print{button{display:none!important}}');
-  w.document.write('</style></head><body><div class="box">');
+  w.document.write('<\/style><\/head><body><div class="box">');
 
-  // Header
-  w.document.write('<div class="hdr">');
-  w.document.write('<div><div class="clinic-name">&#x1F9B7; DentoCare Pro</div><div class="clinic-sub">Prescription / Rx</div></div>');
-  w.document.write('<div style="text-align:right;font-size:12px;color:#5f7a70">Date: '+fd(rx.date)+'</div>');
-  w.document.write('</div>');
+  // Clinic header
+  w.document.write('<div class="hdr"><div class="cl">');
+  if(cLogo) w.document.write('<img class="logo" src="'+cLogo+'" alt=""/>');
+  else w.document.write('<div style="font-size:38px;line-height:1">&#x1F9B7;<\/div>');
+  w.document.write('<div><div class="cn">'+cName+'<\/div>');
+  if(displayDoc) w.document.write('<div class="cd">'+displayDoc+'<\/div>');
+  if(cQual)      w.document.write('<div class="cq">'+cQual+'<\/div>');
+  if(cReg)       w.document.write('<div class="cq">Reg. No: '+cReg+'<\/div>');
+  if(cPhone||cAddr||cEmail){
+    w.document.write('<div class="cc">');
+    if(cPhone) w.document.write('&#x1F4DE; '+cPhone+(cEmail?' &nbsp;|&nbsp; '+cEmail:'')+'<br>');
+    if(cAddr)  w.document.write('&#x1F4CD; '+cAddr.replace(/\n/g,'<br>'));
+    w.document.write('<\/div>');
+  }
+  w.document.write('<\/div><\/div>');
+  w.document.write('<div style="text-align:right;font-size:12px;color:#5f7a70;white-space:nowrap"><strong>Date:<\/strong><br>'+fd(rx.date)+'<\/div>');
+  w.document.write('<\/div>');
 
   // Patient info
   w.document.write('<div class="pi">');
-  w.document.write('<strong>Patient:</strong> '+p.firstName+' '+p.lastName);
-  if(ageStr) w.document.write(' &nbsp;|&nbsp; Age: '+ageStr);
+  w.document.write('<strong>Patient:<\/strong> '+p.firstName+' '+p.lastName);
   if(p.gender) w.document.write(' &nbsp;|&nbsp; '+p.gender);
-  w.document.write('<br><strong>Mobile:</strong> '+(p.phone||'—'));
-  w.document.write(' &nbsp;&nbsp;<strong>ID:</strong> '+p.id);
-  if(p.bloodGroup) w.document.write(' &nbsp;&nbsp;<strong>Blood Group:</strong> '+p.bloodGroup);
-  w.document.write('</div>');
+  w.document.write('<br><strong>Mobile:<\/strong> '+(p.phone||'—'));
+  if(p.bloodGroup) w.document.write(' &nbsp;&nbsp;<strong>Blood Group:<\/strong> '+p.bloodGroup);
+  w.document.write('<\/div>');
 
   // Allergy
-  if(p.allergies) w.document.write('<div class="al">&#x26A0; Known allergy: '+p.allergies+'</div>');
+  if(p.allergies) w.document.write('<div class="al">&#x26A0; Known allergy: '+p.allergies+'<\/div>');
 
-  // Prescription body
-  w.document.write('<div class="rl">&#x211E; Prescription</div>');
+  // Notes - parse into sections
   if(rx.notes){
-    w.document.write('<div class="rx-body">'+rx.notes.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>');
+    var raw=rx.notes;
+    var diagMatch=raw.match(/DIAGNOSIS:\s*([^\n]+)/);
+    var instrMatch=raw.match(/INSTRUCTIONS:\s*([\s\S]+)$/);
+    var medSection=raw.replace(/DIAGNOSIS:[^\n]*\n?/g,'').replace(/PRESCRIPTION:\s*\n?/gi,'').replace(/INSTRUCTIONS:[\s\S]*/,'').trim();
+    if(diagMatch){
+      w.document.write('<div style="margin-bottom:12px;padding:8px 12px;background:#f4f9f7;border-left:3px solid #085041;border-radius:4px;font-size:13px"><strong>Diagnosis:<\/strong> '+diagMatch[1].replace(/</g,'&lt;')+'<\/div>');
+    }
+    if(medSection){
+      w.document.write('<div style="font-size:22px;font-weight:700;color:#085041;margin:10px 0 6px;font-family:Georgia,serif;letter-spacing:1px;">Rx<\/div>');
+      w.document.write('<div class="rx-body">'+medSection.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')+'<\/div>');
+    }
+    if(instrMatch){
+      w.document.write('<div style="margin-top:10px;font-size:12px;background:#f4f9f7;padding:8px 12px;border-radius:4px"><strong>Instructions:<\/strong> '+instrMatch[1].trim().replace(/</g,'&lt;')+'<\/div>');
+    }
+    if(!diagMatch&&!medSection&&!instrMatch){
+      w.document.write('<div class="rx-body">'+raw.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>')+'<\/div>');
+    }
   } else {
-    w.document.write('<div style="color:#5f7a70;margin-bottom:14px">No prescription details.</div>');
+    w.document.write('<div style="color:#5f7a70;margin-bottom:14px">No prescription details.<\/div>');
   }
 
   // Signature
-  w.document.write('<div class="sig">');
-  w.document.write('<div style="font-size:12px;color:#5f7a70">'+(doctorName?'Dr. '+doctorName:'Consulting Doctor')+'</div>');
-  w.document.write('<div class="sig-line">Signature &amp; Stamp</div>');
-  w.document.write('</div>');
+  w.document.write('<div class="sig"><div>');
+  w.document.write('<div class="sig-name">'+displayDoc+'<\/div>');
+  if(cQual) w.document.write('<div class="sig-qual">'+cQual+'<\/div>');
+  if(cReg)  w.document.write('<div class="sig-qual">Reg. No: '+cReg+'<\/div>');
+  w.document.write('<\/div><div class="sl">Signature &amp; Stamp<\/div><\/div>');
 
-  w.document.write('</div>');
-  w.document.write('<br><button onclick="window.print()" style="background:#1D9E75;color:#fff;border:none;padding:10px 24px;border-radius:6px;font-size:14px;cursor:pointer;font-family:Arial">Print</button>');
-  w.document.write('<script>window.onload=function(){window.print();}<\/script>');
-  w.document.write('</body></html>');
+  w.document.write('<\/div>');
+  w.document.write('<br><button onclick="window.print()" style="background:#1D9E75;color:#fff;border:none;padding:10px 24px;border-radius:6px;font-size:14px;cursor:pointer">&#x1F5A8; Print<\/button>');
+  w.document.write('<scr'+'ipt>window.onload=function(){window.print();}<'+'/scr'+'ipt>');
+  w.document.write('<\/body><\/html>');
   w.document.close();
 }
 
+function printSingleRx(rxId){var p=_pts.find(function(pt){return pt.id===PID;});if(!p)return;var rx=_trts.find(function(t){return t.id===rxId;});if(!rx)return;openRxPrintWindow(p,rx);}
+function printRx(){var p=_pts.find(function(pt){return pt.id===PID;});if(!p)return;var rxs=_trts.filter(function(t){return t.pid===PID&&t.type==='Prescription';}).sort(function(a,b){return b.date.localeCompare(a.date);});if(!rxs.length){toast('No prescriptions found.',true);return;}openRxPrintWindow(p,rxs[0]);}
 
-// ══ PATIENT CRUD ══
-function openAddPt(){
-  document.getElementById('pid').value='';document.getElementById('pm-title').textContent='Add New Patient';
-  ['pFN','pLN','pDOB','pPH','pEM','pAD','pOC','pIN','pAL','pMD','pMN','pLV','pPD','pCC','pDN'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-  ['pG','pBG','pSM','pAC2','pDA','pXR'].forEach(function(id){var el=document.getElementById(id);if(el)el.selectedIndex=0;});
-  document.querySelectorAll('.mcc').forEach(function(cb){cb.checked=false;});
-  swMT(document.querySelector('#pmModal .ft'),'mp1');openM('pmModal');
-}
-function editPt(){
-  var p=_pts.find(function(pt){return pt.id===PID;});if(!p)return;
-  document.getElementById('pid').value=p.id;document.getElementById('pm-title').textContent='Edit Patient';
-  var map={pFN:'firstName',pLN:'lastName',pDOB:'dob',pPH:'phone',pEM:'email',pAD:'address',pOC:'occupation',pIN:'insurance',pAL:'allergies',pMD:'medications',pMN:'medicalNotes',pLV:'lastVisit',pPD:'prevDentist',pCC:'chiefComplaint',pDN:'dentalNotes'};
-  Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)el.value=p[map[id]]||'';});
-  document.getElementById('pG').value=p.gender||'';document.getElementById('pBG').value=p.bloodGroup||'';
-  document.getElementById('pSM').value=p.smoking||'No';document.getElementById('pAC2').value=p.alcohol||'No';document.getElementById('pDA').value=p.anxiety||'None';
-  document.querySelectorAll('.mcc').forEach(function(cb){cb.checked=(p.conditions||[]).indexOf(cb.value)>=0;});
-  swMT(document.querySelector('#pmModal .ft'),'mp1');openM('pmModal');
-}
-function checkDupPhone(val){
-  var warn=document.getElementById('dup-phone-warn');var phEl=document.getElementById('pPH');
-  var eid=document.getElementById('pid').value;
-  if(!val||val.length<6||eid){if(warn){warn.style.display='none';warn.textContent='';}if(phEl){phEl.style.borderColor='';phEl.style.background='';}return;}
-  var clean=val.replace(/\D/g,'').slice(-10);if(clean.length<10)return;
-  var existing=_pts.find(function(p){return p.phone&&p.phone.replace(/\D/g,'').slice(-10)===clean;});
-  if(existing){if(warn){warn.style.display='block';warn.textContent='\u26A0 Already registered: '+existing.firstName+' '+existing.lastName+' ('+existing.id+')';}if(phEl){phEl.style.borderColor='#E24B4A';phEl.style.background='#fff5f5';}}
-  else{if(warn){warn.style.display='none';warn.textContent='';}if(phEl){phEl.style.borderColor='#1D9E75';phEl.style.background='#f0fdf8';}}
-}
-async function savePt(){
-  var fn=document.getElementById('pFN').value.trim();var ln=document.getElementById('pLN').value.trim();var ph=document.getElementById('pPH').value.trim();
-  if(!fn||!ln||!ph){toast('Please fill required fields (Name, Phone).',true);return;}
-  var eid=document.getElementById('pid').value;
-  if(!eid){var phClean=ph.replace(/\D/g,'').slice(-10);var existing=_pts.find(function(p){return p.phone&&p.phone.replace(/\D/g,'').slice(-10)===phClean;});if(existing){toast('Patient with this mobile already exists: '+existing.firstName+' '+existing.lastName,true);return;}}
-  var cond=Array.from(document.querySelectorAll('.mcc:checked')).map(function(c){return c.value;});
-  var data={firstName:fn,lastName:ln,phone:ph,dob:document.getElementById('pDOB').value,gender:document.getElementById('pG').value,bloodGroup:document.getElementById('pBG').value,email:document.getElementById('pEM').value,address:document.getElementById('pAD').value,occupation:document.getElementById('pOC').value,insurance:document.getElementById('pIN').value,allergies:document.getElementById('pAL').value,medications:document.getElementById('pMD').value,conditions:cond,smoking:document.getElementById('pSM').value,alcohol:document.getElementById('pAC2').value,medicalNotes:document.getElementById('pMN').value,lastVisit:document.getElementById('pLV').value,prevDentist:document.getElementById('pPD').value,chiefComplaint:document.getElementById('pCC').value,anxiety:document.getElementById('pDA').value,dentalNotes:document.getElementById('pDN').value,notes:eid?(_pts.find(function(p){return p.id===eid;})||{}).notes||'':'',status:eid?(_pts.find(function(p){return p.id===eid;})||{}).status||'New':'New'};
-  try{
-    if(eid){await sb('patients','PATCH',ptRow(data),'?id=eq.'+eid);toast('Patient updated.');closeM('pmModal');await loadAll();rAll();openPD(eid);}
-    else{var yr=new Date().getFullYear().toString().slice(-2);data.id='DC'+yr+String(_pts.length+1).padStart(4,'0');await sb('patients','POST',[ptRow(data)]);toast('Patient added!');closeM('pmModal');await loadAll();rAll();showView('patients');}
-  }catch(e){toast('Error saving patient.',true);}
-}
-async function deletePt(){
-  if(!confirm('Delete this patient and all their records?'))return;
-  try{await sb('treatments','DELETE',null,'?patient_id=eq.'+PID);await sb('appointments','DELETE',null,'?patient_id=eq.'+PID);await sb('patients','DELETE',null,'?id=eq.'+PID);toast('Patient deleted.');await loadAll();showView('patients');}
-  catch(e){toast('Error deleting patient.',true);}
-}
-async function saveNotes(){
-  var notes=document.getElementById('patientNotes').value;
-  try{await sb('patients','PATCH',{notes:notes},'?id=eq.'+PID);await loadAll();toast('Notes saved!');}catch(e){toast('Error saving notes.',true);}
-}
-
-// ══ TREATMENTS ══
-var TR_MEDS=['Tab Clavam 625mg','Tab Clavam 375mg','Tab Mega CV 625mg','Tab Mega CV 375mg','Tab Rapiclav 625mg','Tab Rapiclav 375mg','Tab Enzoflam','Tab Sumoflam','Tab Signoflam','Tab Zerodol SP','Tab Metrogyl 400mg','Tab Metrogyl ER','Tab Ordent','Tab O2','Tab Pan D','Tab Rablet D','Tab Vonasec','Tab Pantocid','Tab Clanoxy 625mg','Tab Clanoxy 375mg'];
-var trSelMeds={};
-function safeid(n){return n.replace(/[^a-zA-Z0-9]/g,'_');}
-const TX_FEES={'Consultation':300,'X-ray':300,'Fluoride treatment':500,'Filling (Composite)':2000,'Filling (GIC)':1500,'Filling (ZOE)':500,'Root canal (Anterior)':6500,'Root canal (Premolar)':4500,'Root canal (Molar)':7000,'Pulpectomy':2500,'Pulpotomy':1500,'Extraction (Simple)':1500,'Surgical extraction':2500,'Crown (Ceramic)':5000,'Crown (Metal)':4000,'Bridge (Ceramic)':5000,'Bridge (Metal)':4000,'Implant':30000,'Dentures \u2014 RPD':8000,'Dentures \u2014 RPD Flexible':12000,'Complete Dentures \u2014 Ordinary':25000,'Complete Dentures \u2014 Semi Imported':30000,'Complete Dentures \u2014 Imported':35000,'Scaling & polishing':2000,'Gum treatment':2000,'Curettage':3000,'Bleaching / whitening':8000,'Veneers':12000,'Braces (Metal)':25000,'Braces (Ceramic)':35000,'Aligners':60000,'Retainer':3000};
-function onTxChange(){var v=document.getElementById('tTY').value;var cf=document.getElementById('tCS');if(cf&&TX_FEES[v]!==undefined)cf.value=TX_FEES[v];}
-function onAdvChange(){var v=document.getElementById('tADV').value;var cf=document.getElementById('tADV-cost');if(cf)cf.value=(TX_FEES[v]!==undefined)?TX_FEES[v]:'';}
-function filterRxTr(){renderRxList(document.getElementById('rx-search-tr').value||'');}
-function addNewMedTr(){var inp=document.getElementById('rx-new-tr');var val=inp.value.trim();if(!val)return;if(TR_MEDS.indexOf(val)>=0){inp.style.borderColor='#E24B4A';setTimeout(function(){inp.style.borderColor='';},1500);return;}TR_MEDS.push(val);inp.value='';inp.style.borderColor='#1D9E75';setTimeout(function(){inp.style.borderColor='';},1000);renderRxList(document.getElementById('rx-search-tr').value||'');}
-function renderRxList(filter){var list=document.getElementById('rx-list-tr');if(!list)return;var q=(filter||'').toLowerCase();var filtered=TR_MEDS.filter(function(m){return m.toLowerCase().indexOf(q)>=0;});while(list.firstChild)list.removeChild(list.firstChild);if(!filtered.length){var e=document.createElement('div');e.style.cssText='padding:10px;font-size:12px;color:#888;text-align:center';e.textContent='No medicines found';list.appendChild(e);return;}filtered.forEach(function(m){var row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #edf6f2;cursor:pointer;font-size:13px;user-select:none;background:'+(trSelMeds[m]?'#dcf5ea':'#fff');var cb=document.createElement('input');cb.type='checkbox';cb.checked=!!trSelMeds[m];cb.style.cssText='accent-color:#1D9E75;width:14px;height:14px;pointer-events:none';var lbl=document.createElement('span');lbl.textContent=m;lbl.style.flex='1';row.appendChild(cb);row.appendChild(lbl);row.onclick=function(){toggleMed(m);};list.appendChild(row);});}
-function toggleMed(name){if(trSelMeds[name]){delete trSelMeds[name];var c=document.getElementById('rxcard_'+safeid(name));if(c)c.remove();}else{trSelMeds[name]={meal:'after meal',freq:'',dur:'',unit:'Days'};addRxCard(name);}renderRxList(document.getElementById('rx-search-tr').value||'');renderRxTags();}
-function addRxCard(name){var rows=document.getElementById('rx-rows-tr');if(!rows)return;var cid='rxcard_'+safeid(name);if(document.getElementById(cid))return;var card=document.createElement('div');card.id=cid;card.style.cssText='background:#fff;border:1px solid #c8e0d8;border-radius:8px;padding:12px;margin-bottom:8px';var tRow=document.createElement('div');tRow.style.cssText='display:flex;justify-content:space-between;align-items:center;margin-bottom:10px';var ttl=document.createElement('div');ttl.style.cssText='font-size:13px;font-weight:600;color:#1a2e28';ttl.textContent=name;var rb=document.createElement('button');rb.type='button';rb.textContent='\u00D7';rb.style.cssText='width:26px;height:26px;border-radius:6px;border:1px solid #f7c1c1;background:#fcebeb;color:#A32D2D;font-size:16px;cursor:pointer;font-weight:700;line-height:1;font-family:inherit';rb.onclick=function(){toggleMed(name);};tRow.appendChild(ttl);tRow.appendChild(rb);card.appendChild(tRow);var ml=document.createElement('div');ml.style.cssText='font-size:10px;font-weight:600;color:#5F5E5A;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px';ml.textContent='When to take';card.appendChild(ml);var mw=document.createElement('div');mw.style.cssText='display:inline-flex;border-radius:8px;overflow:hidden;border:2px solid #1D9E75;margin-bottom:10px';['Before meal','After meal'].forEach(function(opt,idx){var b=document.createElement('button');b.type='button';b.textContent=opt;b.style.cssText='padding:7px 16px;font-size:12px;font-weight:500;cursor:pointer;border:none;outline:none;font-family:inherit;'+(idx===1?'border-left:2px solid #1D9E75;':'');var isActive=(opt.toLowerCase()===trSelMeds[name].meal);b.style.background=isActive?'#1D9E75':'#fff';b.style.color=isActive?'#fff':'#1D9E75';b.onclick=function(){mw.querySelectorAll('button').forEach(function(x){x.style.background='#fff';x.style.color='#1D9E75';x.style.fontWeight='500';});b.style.background='#1D9E75';b.style.color='#fff';b.style.fontWeight='700';trSelMeds[name].meal=opt.toLowerCase();updateRxSum(name);};mw.appendChild(b);});card.appendChild(mw);var grid=document.createElement('div');grid.style.cssText='display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px';var fStyle='border:1px solid #c8e0d8;border-radius:8px;padding:6px 8px;font-size:12px;color:#1a2e28;background:#f4f9f7;outline:none;width:100%;font-family:inherit';var lStyle='font-size:10px;font-weight:600;color:#5F5E5A;text-transform:uppercase;letter-spacing:.3px;margin-bottom:3px';var fw=document.createElement('div');var fl=document.createElement('div');fl.style.cssText=lStyle;fl.textContent='Frequency';var fs=document.createElement('select');fs.style.cssText=fStyle;['\u2014 Select \u2014','Once a day','Twice a day','Thrice a day','Four times a day','Every 8 hours','Every 12 hours','As needed (SOS)'].forEach(function(o){var op=document.createElement('option');op.textContent=o;op.value=o==='\u2014 Select \u2014'?'':o;fs.appendChild(op);});fs.onchange=function(){trSelMeds[name].freq=fs.value;updateRxSum(name);};fw.appendChild(fl);fw.appendChild(fs);grid.appendChild(fw);var dw=document.createElement('div');var dl=document.createElement('div');dl.style.cssText=lStyle;dl.textContent='Duration';var di=document.createElement('input');di.type='number';di.min='1';di.placeholder='e.g. 5';di.style.cssText=fStyle;di.oninput=function(){trSelMeds[name].dur=di.value;updateRxSum(name);};dw.appendChild(dl);dw.appendChild(di);grid.appendChild(dw);var uw=document.createElement('div');var ul=document.createElement('div');ul.style.cssText=lStyle;ul.textContent='Unit';var us=document.createElement('select');us.style.cssText=fStyle;['Days','Weeks'].forEach(function(o){var op=document.createElement('option');op.textContent=o;op.value=o;us.appendChild(op);});us.value='Days';us.onchange=function(){trSelMeds[name].unit=us.value;updateRxSum(name);};uw.appendChild(ul);uw.appendChild(us);grid.appendChild(uw);card.appendChild(grid);var sd=document.createElement('div');sd.id='rxsum_'+safeid(name);sd.style.cssText='font-size:11px;color:#085041;background:#d4f0e4;border:1px solid #9FE1CB;border-radius:6px;padding:4px 8px;font-weight:500';sd.textContent='Fill in dosage details above';card.appendChild(sd);rows.appendChild(card);}
-function updateRxSum(name){var d=trSelMeds[name];if(!d)return;var parts=[];if(d.freq)parts.push(d.freq);if(d.meal)parts.push(d.meal);if(d.dur&&d.unit)parts.push('for '+d.dur+' '+d.unit.toLowerCase());var el=document.getElementById('rxsum_'+safeid(name));if(el)el.textContent=parts.length?parts.join(' \u00B7 '):'Fill in dosage details above';}
-function renderRxTags(){var wrap=document.getElementById('rx-tags-tr');if(!wrap)return;var keys=Object.keys(trSelMeds);while(wrap.firstChild)wrap.removeChild(wrap.firstChild);if(!keys.length){var s=document.createElement('span');s.style.cssText='font-size:11px;color:#888;font-style:italic';s.textContent='None selected';wrap.appendChild(s);return;}keys.forEach(function(m){var tag=document.createElement('span');tag.style.cssText='display:inline-flex;align-items:center;gap:4px;background:#085041;color:#fff;font-size:11px;font-weight:500;padding:4px 9px;border-radius:20px';tag.appendChild(document.createTextNode(m));var x=document.createElement('button');x.type='button';x.textContent='\u00D7';x.style.cssText='background:none;border:none;color:rgba(255,255,255,.8);cursor:pointer;font-size:14px;line-height:1;padding:0;margin-left:2px;font-weight:700';x.onclick=function(){toggleMed(m);};tag.appendChild(x);wrap.appendChild(tag);});}
-function buildRxText(){var keys=Object.keys(trSelMeds);if(!keys.length)return'';var lines=['PRESCRIPTION:'];keys.forEach(function(name){var d=trSelMeds[name];var line=name;if(d.freq)line+=' \u2014 '+d.freq;if(d.meal)line+=' '+d.meal;if(d.dur&&d.unit)line+=' for '+d.dur+' '+d.unit.toLowerCase();lines.push(line);});return lines.join('\n');}
-function buildTrToothGrid(){var g=document.getElementById('tr-tooth-grid');if(!g||g.children.length)return;var Q=[{l:'Upper right (11-18)',t:['18','17','16','15','14','13','12','11']},{l:'Upper left (21-28)',t:['21','22','23','24','25','26','27','28']},{l:'Lower right (41-48)',t:['48','47','46','45','44','43','42','41']},{l:'Lower left (31-38)',t:['31','32','33','34','35','36','37','38']}];Q.forEach(function(q){var d=document.createElement('div');var ql=document.createElement('div');ql.className='ql';ql.textContent=q.l;d.appendChild(ql);var tr=document.createElement('div');tr.className='tr2';q.t.forEach(function(t){var b=document.createElement('button');b.className='tbtn';b.type='button';b.dataset.t=t;b.textContent=t;tr.appendChild(b);});d.appendChild(tr);g.appendChild(d);});g.addEventListener('click',function(e){var btn=e.target.closest('.tbtn');if(!btn)return;e.preventDefault();btn.classList.toggle('sel');btn.style.background=btn.classList.contains('sel')?'#1D9E75':'';btn.style.color=btn.classList.contains('sel')?'#fff':'';btn.style.borderColor=btn.classList.contains('sel')?'#0a5c3e':'';var sel=Array.from(g.querySelectorAll('.tbtn.sel')).map(function(b){return b.dataset.t;});document.getElementById('tr-tooth-disp').textContent=sel.length?'Selected: Tooth '+sel.join(', '):'No teeth selected';});}
-async function openAddTr(){
-  document.getElementById('tDT').value=new Date().toISOString().split('T')[0];
-  ['tTY','tCS','tNT','tFU','tADV','tADV-cost'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el){if(el.tagName==='SELECT')el.selectedIndex=0;else el.value='';}
+// ══ PRINT PATIENT APPOINTMENTS ══
+function printPatientAppts(){
+  var p=_pts.find(function(pt){return pt.id===PID;}); if(!p) return;
+  var cs=getClinicSettings();
+  var cName=cs.name||'DentoCare Pro'; var cDoc=cs.doctor||''; var cQual=cs.qual||'';
+  var cReg=cs.reg||''; var cPhone=cs.phone||''; var cEmail=cs.email||'';
+  var cAddr=cs.addr||''; var cLogo=cs.logo||'';
+  var appts=_appts.filter(function(a){return a.pid===PID;}).sort(function(a,b){return b.date.localeCompare(a.date);});
+  var today=new Date().toISOString().split('T')[0];
+  var w=window.open('','_blank');
+  w.document.write('<!DOCTYPE html><html><head><title>Appointments<\/title><style>');
+  w.document.write('body{font-family:Arial,sans-serif;font-size:13px;color:#1a2e28;padding:28px;max-width:700px;margin:0 auto}');
+  w.document.write('.box{border:2px solid #085041;border-radius:10px;padding:24px}');
+  w.document.write('.hdr{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #085041;padding-bottom:14px;margin-bottom:16px;gap:16px}');
+  w.document.write('.cl{display:flex;align-items:flex-start;gap:14px}');
+  w.document.write('.logo{width:64px;height:64px;object-fit:contain;border-radius:8px}');
+  w.document.write('.cn{font-size:20px;font-weight:700;color:#085041}.cd{font-size:14px;font-weight:600;color:#1a2e28;margin-top:3px}');
+  w.document.write('.cq{font-size:12px;color:#5f7a70;margin-top:1px}.cc{font-size:11px;color:#5f7a70;margin-top:4px;line-height:1.6}');
+  w.document.write('.pi{background:#f4f9f7;border-radius:6px;padding:10px 14px;font-size:13px;line-height:1.9;margin-bottom:14px}');
+  w.document.write('table{width:100%;border-collapse:collapse;margin-top:8px}');
+  w.document.write('th{background:#085041;color:#fff;padding:8px 12px;font-size:12px;text-align:left}');
+  w.document.write('td{padding:8px 12px;border-bottom:1px solid #ddd;font-size:12px}');
+  w.document.write('tr:nth-child(even) td{background:#f4f9f7}');
+  w.document.write('.up{color:#085041;font-weight:600}.pa{color:#888}.ca{color:#A32D2D;text-decoration:line-through}');
+  w.document.write('@media print{button{display:none!important}}<\/style><\/head><body><div class="box">');
+  w.document.write('<div class="hdr"><div class="cl">');
+  if(cLogo) w.document.write('<img class="logo" src="'+cLogo+'" alt=""/>');
+  else w.document.write('<div style="font-size:38px;line-height:1">&#x1F9B7;<\/div>');
+  w.document.write('<div><div class="cn">'+cName+'<\/div>');
+  if(cDoc)  w.document.write('<div class="cd">'+cDoc+'<\/div>');
+  if(cQual) w.document.write('<div class="cq">'+cQual+'<\/div>');
+  if(cReg)  w.document.write('<div class="cq">Reg. No: '+cReg+'<\/div>');
+  if(cPhone||cAddr||cEmail){
+    w.document.write('<div class="cc">');
+    if(cPhone) w.document.write('&#x1F4DE; '+cPhone+(cEmail?' | '+cEmail:'')+'<br>');
+    if(cAddr)  w.document.write('&#x1F4CD; '+cAddr.replace(/\n/g,'<br>'));
+    w.document.write('<\/div>');
+  }
+  w.document.write('<\/div><\/div><div style="text-align:right;font-size:12px;color:#5f7a70">Printed:<br>'+fd(today)+'<\/div><\/div>');
+  w.document.write('<div class="pi"><strong>Patient:<\/strong> '+p.firstName+' '+p.lastName+(p.gender?' | '+p.gender:'')+'<br>');
+  w.document.write('<strong>Mobile:<\/strong> '+(p.phone||'—')+(p.bloodGroup?' &nbsp; <strong>Blood Group:<\/strong> '+p.bloodGroup:'')+'<\/div>');
+  w.document.write('<h3 style="color:#085041;border-bottom:2px solid #085041;padding-bottom:6px;margin-bottom:0">Appointment History<\/h3>');
+  w.document.write('<table><thead><tr><th>Date<\/th><th>Time<\/th><th>Treatment<\/th><th>Doctor<\/th><th>Status<\/th><\/tr><\/thead><tbody>');
+  appts.forEach(function(a){
+    var isPast=a.date<today||(a.date===today&&slotToMins(a.slot)<nowMins());
+    var isCan=a.status==='cancelled';
+    var cls=isCan?'ca':isPast?'pa':'up';
+    var status=isCan?'Cancelled':isPast?'Past':'Upcoming';
+    var ds=new Date(a.date+'T00:00:00').toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+    w.document.write('<tr><td class="'+cls+'">'+ds+'<\/td><td>'+a.slotLabel+'<\/td><td>'+(a.treatment||'')+'<\/td><td>'+(a.doc||'—')+'<\/td><td class="'+cls+'">'+status+'<\/td><\/tr>');
   });
-  document.getElementById('tDN').selectedIndex=0;
-  document.getElementById('tPY').selectedIndex=0;
-  document.querySelectorAll('#tr-tooth-grid .tbtn.sel').forEach(function(b){
-    b.classList.remove('sel');b.style.background='';b.style.color='';b.style.borderColor='';
-  });
-  var td=document.getElementById('tr-tooth-disp');
-  if(td) td.textContent='No teeth selected';
-  openM('trModal');setTimeout(function(){buildTrToothGrid();renderRxList('');},80);}
-async function saveTr(){var type=document.getElementById('tTY').value;var date=document.getElementById('tDT').value;if(!type||!date){toast('Please select treatment type and date.',true);return;}var teethSel=Array.from(document.querySelectorAll('#tr-tooth-grid .tbtn.sel')).map(function(b){return b.dataset.t;});var rxText=buildRxText();var comments=document.getElementById('tNT').value.trim();var advised=document.getElementById('tADV')?document.getElementById('tADV').value.trim():'';var advisedCost=document.getElementById('tADV-cost')?document.getElementById('tADV-cost').value.trim():'';var advisedLine=advised?('TREATMENT ADVISED: '+advised+(advisedCost?' (Est. \u20B9'+Number(advisedCost).toLocaleString('en-IN')+')':'')):'' ;var fullNotes=[rxText,comments,advisedLine].filter(function(x){return!!x;}).join('\n\n');var data={id:'TR'+uid(),pid:PID,type:type,tooth:teethSel.join(', '),date:date,cost:document.getElementById('tCS').value,dentist:document.getElementById('tDN').value,payment:document.getElementById('tPY').value,notes:fullNotes,followup:document.getElementById('tFU').value};try{await sb('treatments','POST',[trRow(data)]);await sb('patients','PATCH',{status:'Active'},'?id=eq.'+PID);toast('Treatment saved!');closeM('trModal');await loadAll();rDTr(PID);rFH(PID);rPay(PID);rDash();}catch(e){toast('Error saving treatment.',true);}}
-async function delTr(id){if(!confirm('Remove this treatment record?'))return;try{await sb('treatments','DELETE',null,'?id=eq.'+id);await loadAll();rDTr(PID);rFH(PID);rPay(PID);rDash();toast('Treatment deleted.');}catch(e){toast('Error.',true);}}
-
-// ══ APPOINTMENT BOOKING ══
-function gSlots(sH,sM,eH,eM){var o=[];var h=sH,m=sM;while(h<eH||(h===eH&&m<eM)){var h12=h>12?h-12:(h===0?12:h);var ap=h<12?'AM':'PM';o.push({label:h12+':'+(m===0?'00':String(m).padStart(2,'0'))+' '+ap,key:h+'_'+m});m+=15;if(m>=60){m=0;h++;}}return o;}
-var AM=gSlots(9,0,12,0),PM=gSlots(17,0,19,0);
-var SK=null,SL=null;
-function booked(d,doc){return _appts.filter(function(a){return a.date===d&&a.status!=='cancelled'&&(!doc||a.doc===doc);}).map(function(a){return a.slot;});}
-function renderSlots(){SK=null;SL=null;var si=document.getElementById('ssi');if(si)si.classList.remove('show');var cfb=document.getElementById('cfb');if(cfb)cfb.classList.remove('show');var date=document.getElementById('bk-dt')?document.getElementById('bk-dt').value:'';var doc=document.getElementById('bk-dc')?document.getElementById('bk-dc').value||'':'';var lbl=document.getElementById('slot-doc-label');var slotSec=document.getElementById('slot-section');if(date){var d=new Date(date+'T00:00:00');var dow=d.getDay();if(dow===0){if(slotSec)slotSec.innerHTML='<div style="background:var(--r50);border:1px solid #f7c1c1;border-radius:var(--rs);padding:14px;text-align:center;font-size:13px;color:var(--r800);font-weight:500">&#x1F534; Sunday is a holiday. Please select another date.</div>';return;}if(lbl)lbl.textContent=doc?'Slots for '+doc+' on '+fd(date):'Available slots for '+fd(date);var bk=booked(date,doc);rSG('sl-am',AM,bk);if(dow===6){var pmGrid=document.getElementById('sl-pm');if(pmGrid)pmGrid.innerHTML='<div style="font-size:12px;color:var(--g400);font-style:italic;padding:4px 0">Evening slots not available on Saturdays</div>';}else{rSG('sl-pm',PM,bk);}}else{if(lbl)lbl.textContent='Select a doctor above to see slots';}}
-function rSG(cid,slots,bk){var c=document.getElementById(cid);if(!c)return;c.innerHTML='';slots.forEach(function(s){var btn=document.createElement('button');btn.className='slot';btn.type='button';btn.textContent=s.label;if(bk.indexOf(s.key)>=0)btn.disabled=true;else btn.onclick=function(){document.querySelectorAll('.slot').forEach(function(b){b.style.background='';b.style.color='';b.style.borderColor='';b.style.fontWeight='';});btn.style.background='#1D9E75';btn.style.color='#fff';btn.style.borderColor='#0F6E56';btn.style.fontWeight='700';SK=s.key;SL=s.label;var si=document.getElementById('ssi');document.getElementById('ssi-t').textContent='Selected: '+s.label;si.classList.add('show');tryConfirm();};c.appendChild(btn);});}
-(function(){var g=document.getElementById('bk-tg');if(!g)return;var Q=[{l:'Upper right (11-18)',t:['18','17','16','15','14','13','12','11']},{l:'Upper left (21-28)',t:['21','22','23','24','25','26','27','28']},{l:'Lower right (41-48)',t:['48','47','46','45','44','43','42','41']},{l:'Lower left (31-38)',t:['31','32','33','34','35','36','37','38']}];Q.forEach(function(q){var d=document.createElement('div');var ql=document.createElement('div');ql.className='ql';ql.textContent=q.l;d.appendChild(ql);var tr=document.createElement('div');tr.className='tr2';q.t.forEach(function(t){var b=document.createElement('button');b.className='tbtn';b.type='button';b.dataset.t=t;b.textContent=t;tr.appendChild(b);});d.appendChild(tr);g.appendChild(d);});g.addEventListener('click',function(e){var btn=e.target.closest('.tbtn');if(!btn)return;e.preventDefault();btn.classList.toggle('sel');btn.style.background=btn.classList.contains('sel')?'#1D9E75':'';btn.style.color=btn.classList.contains('sel')?'#fff':'';btn.style.borderColor=btn.classList.contains('sel')?'#0a5c3e':'';var sel=Array.from(g.querySelectorAll('.tbtn.sel')).map(function(b){return b.dataset.t;});document.getElementById('bk-td').textContent=sel.length?'Selected: Tooth '+sel.join(', '):'No teeth selected';});})();
-function apptFill(){var raw=document.getElementById('bk-ph').value.replace(/\D/g,'').slice(-10);var match=_pts.find(function(p){return p.phone&&p.phone.replace(/\D/g,'').slice(-10)===raw;});if(match)document.getElementById('bk-nm').value=match.firstName+' '+match.lastName;tryConfirm();}
-function tryConfirm(){var nm=document.getElementById('bk-nm').value.trim();var ph=document.getElementById('bk-ph').value.trim();var dt=document.getElementById('bk-dt').value;var dc=document.getElementById('bk-dc').value;var tx=document.getElementById('bk-tx').value;var teeth=Array.from(document.querySelectorAll('#bk-tg .tbtn.sel')).map(function(b){return b.dataset.t;});var cfb=document.getElementById('cfb');if(nm&&ph&&dt&&SK&&tx){var ds=new Date(dt+'T00:00:00').toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short',year:'numeric'});document.getElementById('cfc').innerHTML='<b>Patient:</b> '+nm+' | '+ph+'<br><b>Date &amp; time:</b> '+ds+' at '+SL+'<br><b>Doctor:</b> '+dc+'<br><b>Treatment:</b> '+tx+(teeth.length?'<br><b>Teeth:</b> Tooth '+teeth.join(', '):'');cfb.classList.add('show');}else cfb.classList.remove('show');}
-async function bookAppt(){var nm=document.getElementById('bk-nm').value.trim();var ph=document.getElementById('bk-ph').value.trim();var dt=document.getElementById('bk-dt').value;var dc=document.getElementById('bk-dc').value;var tx=document.getElementById('bk-tx').value;var nt=document.getElementById('bk-nt').value.trim();var teeth=Array.from(document.querySelectorAll('#bk-tg .tbtn.sel')).map(function(b){return b.dataset.t;});if(!nm){toast('Please enter patient name.',true);return;}if(!ph){toast('Please enter mobile number.',true);return;}if(!dt){toast('Please select a date.',true);return;}if(!SK){toast('Please select a time slot.',true);return;}if(!tx){toast('Please select a treatment.',true);return;}var match=_pts.find(function(p){return p.phone&&p.phone.replace(/\D/g,'').slice(-10)===ph.replace(/\D/g,'').slice(-10);});var data={id:'AP'+uid(),pid:match?match.id:null,name:nm,phone:ph,date:dt,slot:SK,slotLabel:SL,doc:dc,treatment:tx,teeth:teeth,notes:nt,status:'upcoming'};try{await sb('appointments','POST',[apRow(data)]);toast('Appointment booked for '+nm+' at '+SL+'!');clearApptForm();await loadAll();rAL();rDash();updBadge();}catch(e){toast('Error booking appointment.',true);}}
-function clearApptForm(){['bk-nm','bk-ph','bk-nt'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});var d=document.getElementById('bk-dt');if(d)d.value=new Date().toISOString().split('T')[0];var dc=document.getElementById('bk-dc');if(dc)dc.selectedIndex=0;var tx=document.getElementById('bk-tx');if(tx)tx.value='';document.querySelectorAll('#bk-tg .tbtn.sel').forEach(function(b){b.classList.remove('sel');b.style.background='';b.style.color='';b.style.borderColor='';});var td=document.getElementById('bk-td');if(td)td.textContent='No teeth selected';SK=null;SL=null;var si=document.getElementById('ssi');if(si)si.classList.remove('show');var cfb=document.getElementById('cfb');if(cfb)cfb.classList.remove('show');renderSlots();}
-async function cancelA(id){var appts=_appts;var a=appts.find(function(x){return x.id===id;});if(!a||a.status==='cancelled')return;if(!confirm('Cancel appointment for '+a.name+' at '+a.slotLabel+'?'))return;try{await sb('appointments','PATCH',{status:'cancelled'},'?id=eq.'+id);toast('Appointment cancelled.');await loadAll();rAL();renderSlots();rDash();updBadge();}catch(e){toast('Error.',true);}}
-
-// ══ APPOINTMENT FILTERS & LIST ══
-function clearApptFilters(){var df=document.getElementById('al-date-filter');if(df)df.value='';var dcf=document.getElementById('al-doc-filter');if(dcf)dcf.value='';var sf=document.getElementById('al-status-filter');if(sf)sf.value='';rAL();}
-function gotoTodayAppts(){showView('appointments');var today=new Date().toISOString().split('T')[0];setTimeout(function(){var df=document.getElementById('al-date-filter');if(df)df.value=today;var sf=document.getElementById('al-status-filter');if(sf)sf.value='';var ddf=document.getElementById('al-doc-filter');if(ddf)ddf.value='';rAL();},300);}
-function slotToMins(sk){if(!sk)return 0;var p=sk.split('_');return parseInt(p[0]||0)*60+parseInt(p[1]||0);}
-function nowMins(){var n=new Date();return n.getHours()*60+n.getMinutes();}
-function rAL(){var today=new Date().toISOString().split('T')[0];var nm=nowMins();var el=document.getElementById('al');if(!el)return;var dateF=document.getElementById('al-date-filter')?document.getElementById('al-date-filter').value||'':'';var docF=document.getElementById('al-doc-filter')?document.getElementById('al-doc-filter').value||'':'';var statF=document.getElementById('al-status-filter')?document.getElementById('al-status-filter').value||'':'';var allSorted=_appts.slice().sort(function(a,b){var dc=a.date.localeCompare(b.date);if(dc!==0)return dc;return slotToMins(a.slot)-slotToMins(b.slot);});var filtered=allSorted;if(dateF)filtered=filtered.filter(function(a){return a.date===dateF;});if(docF)filtered=filtered.filter(function(a){return a.doc===docF;});if(statF==='upcoming')filtered=filtered.filter(function(a){return a.date>=today&&a.status!=='cancelled';});else if(statF==='past')filtered=filtered.filter(function(a){return a.date<today&&a.status!=='cancelled';});else if(statF==='cancelled')filtered=filtered.filter(function(a){return a.status==='cancelled';});var countEl=document.getElementById('al-count');var isToday=dateF===today;if(countEl){var upc=filtered.filter(function(a){return a.status!=='cancelled'&&(a.date>today||(a.date===today&&slotToMins(a.slot)>=nm));}).length;var pst=filtered.filter(function(a){return a.status!=='cancelled'&&(a.date<today||(a.date===today&&slotToMins(a.slot)<nm));}).length;var msg=filtered.length+' appointment'+(filtered.length!==1?'s':'')+' shown';if(dateF)msg+=' for '+fd(dateF);if(docF)msg+=' \u00B7 '+docF;if(isToday&&!statF)msg+=' \u00B7 '+upc+' upcoming, '+pst+' past';countEl.textContent=msg;}if(!filtered.length){el.innerHTML='<div class="nd">No appointments match the selected filters.</div>';return;}var html='';var shownUH=false,shownPH=false;filtered.forEach(function(a){var d=new Date(a.date+'T00:00:00');var ds=d.toLocaleDateString('en-IN',{day:'numeric',month:'short'});var isCan=a.status==='cancelled';var isPastDate=a.date<today;var isTodayPastSlot=a.date===today&&slotToMins(a.slot)<nm&&!isCan;var isTodayUpcoming=a.date===today&&slotToMins(a.slot)>=nm&&!isCan;var isFuture=a.date>today&&!isCan;var isUpcoming=isTodayUpcoming||isFuture;var isPast=isPastDate||isTodayPastSlot;if(isToday&&!statF){if(isUpcoming&&!shownUH){html+='<div style="font-size:11px;font-weight:700;color:var(--t800);text-transform:uppercase;letter-spacing:.8px;padding:8px 4px 6px;border-bottom:2px solid var(--t400);margin-bottom:10px">\u23F0 Upcoming today</div>';shownUH=true;}if(isPast&&!shownPH&&shownUH){html+='<div style="font-size:11px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:.8px;padding:14px 4px 6px;border-bottom:1px solid var(--g100);margin-bottom:10px;margin-top:4px">\u2713 Completed today</div>';shownPH=true;}}var tbBg=isCan?'var(--g400)':isPast?'var(--t600)':'#085041';var cBorder=isTodayUpcoming?'border:1.5px solid var(--t400);':'';html+='<div class="ac2" style="'+(isCan?'opacity:.55;':'')+cBorder+'">';html+='<div class="atb" style="background:'+tbBg+'">';html+='<div class="ad2">'+ds+'</div><div class="at">'+a.slotLabel+'</div>';if(isTodayUpcoming){var ml=slotToMins(a.slot)-nm;var ts=ml<=0?'Now':(ml<60?ml+'m away':Math.floor(ml/60)+'h '+(ml%60?ml%60+'m':'')+' away');html+='<div style="font-size:9px;color:#9FE1CB;margin-top:2px;font-weight:600">'+ts+'</div>';}html+='</div>';html+='<div style="flex:1;min-width:0"><div style="font-weight:600;font-size:14px">'+a.name+'</div><div style="font-size:12px;color:var(--txm);margin-top:1px">'+a.phone+'</div><div style="font-size:12px;color:var(--txm);margin-top:1px">'+a.treatment+(a.teeth&&a.teeth.length?' \u00B7 Tooth '+a.teeth.join(', '):'')+'</div>'+(a.doc?'<div style="font-size:11px;font-weight:600;color:var(--t800);margin-top:3px;background:var(--t50);display:inline-block;padding:2px 8px;border-radius:20px">'+a.doc+'</div>':'')+(a.notes?'<div style="font-size:11px;color:var(--txm);font-style:italic;margin-top:2px">'+a.notes+'</div>':'')+'</div>';html+='<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">';var bc=isCan?'bc':isPast?'bpa':'bu';var bt=isCan?'Cancelled':isPast?'Past':'Upcoming';html+='<span class="badge '+bc+'">'+bt+'</span>';if(!isCan&&!isPast)html+='<button class="btn bd2" style="padding:4px 10px;font-size:11px" onclick="cancelA(&quot;'+a.id+'&quot;)">Cancel</button>';if(a.pid)html+='<button class="btn bg" style="padding:4px 10px;font-size:11px" onclick="openPD(&quot;'+a.pid+'&quot;)">View Patient</button>';html+='</div></div>';});el.innerHTML=html;}
+  w.document.write('<\/tbody><\/table>');
+  if(!appts.length) w.document.write('<p style="color:#888;font-style:italic">No appointments found.<\/p>');
+  w.document.write('<\/div><br><button onclick="window.print()" style="background:#1D9E75;color:#fff;border:none;padding:10px 24px;border-radius:6px;font-size:14px;cursor:pointer">Print<\/button>');
+  w.document.write('<scr'+'ipt>window.onload=function(){window.print();}<'+'/scr'+'ipt>');
+  w.document.write('<\/body><\/html>'); w.document.close();
+}
 
 
 // ══ EXPORTS ══
@@ -1457,134 +1595,6 @@ function renderRxTab(pid){
       +'</div></div>';
   }).join('');
 }
-function printSingleRx(rxId){var p=_pts.find(function(pt){return pt.id===PID;});if(!p)return;var rx=_trts.find(function(t){return t.id===rxId;});if(!rx)return;openRxPrintWindow(p,rx);}
-function printRx(){var p=_pts.find(function(pt){return pt.id===PID;});if(!p)return;var rxs=_trts.filter(function(t){return t.pid===PID&&t.type==='Prescription';}).sort(function(a,b){return b.date.localeCompare(a.date);});if(!rxs.length){toast('No prescriptions found.',true);return;}openRxPrintWindow(p,rxs[0]);}
-function openRxPrintWindow(p,rx){
-  var ageStr=p.dob?age(p.dob)+' yrs':'';
-  var doc=rx.dentist?rx.dentist.replace(/^Dr\.\s*/i,''):'';
-  var cs=getClinicSettings();
-  var clinicName=cs.name||'DentoCare Pro';
-  var clinicDoctor=cs.doctor||(doc?'Dr. '+doc:'');
-  var clinicQual=cs.qual||'';
-  var clinicPhone=cs.phone||'';
-  var clinicAddr=cs.addr||'';
-  var clinicLogo=cs.logo||'';
-  var w=window.open('','_blank');
-  w.document.write('<!DOCTYPE html><html><head><title>Prescription<\/title><style>');
-  w.document.write('body{font-family:Arial,sans-serif;font-size:13px;color:#1a2e28;padding:28px;max-width:640px;margin:0 auto}');
-  w.document.write('.box{border:2px solid #085041;border-radius:10px;padding:24px}');
-  w.document.write('.hdr{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid #085041;padding-bottom:14px;margin-bottom:16px;gap:16px}');
-  w.document.write('.clinic-left{display:flex;align-items:flex-start;gap:14px}');
-  w.document.write('.clinic-logo{width:64px;height:64px;object-fit:contain;border-radius:8px}');
-  w.document.write('.clinic-name{font-size:20px;font-weight:700;color:#085041;line-height:1.2}');
-  w.document.write('.clinic-doctor{font-size:14px;font-weight:600;color:#1a2e28;margin-top:3px}');
-  w.document.write('.clinic-qual{font-size:12px;color:#5f7a70;margin-top:1px}');
-  w.document.write('.clinic-contact{font-size:11px;color:#5f7a70;margin-top:4px;line-height:1.6}');
-  w.document.write('.pi{margin-bottom:14px;font-size:13px;line-height:1.9;background:#f4f9f7;border-radius:6px;padding:10px 14px}');
-  w.document.write('.al{background:#FCEBEB;padding:6px 10px;border-radius:6px;font-size:12px;color:#791F1F;margin-bottom:12px}');
-  w.document.write('.rl{font-weight:700;font-size:15px;color:#085041;margin-bottom:10px;letter-spacing:.3px}');
-  w.document.write('.rb{background:#f4f9f7;border-radius:6px;padding:14px;font-size:13px;line-height:2;white-space:pre-wrap;margin-bottom:14px}');
-  w.document.write('.sig{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid #cde0d8;padding-top:14px;margin-top:20px}');
-  w.document.write('.sig-name{font-size:13px;font-weight:600;color:#1a2e28}');
-  w.document.write('.sig-qual{font-size:11px;color:#5f7a70;margin-top:2px}');
-  w.document.write('.sl{border-top:1px solid #1a2e28;width:180px;padding-top:4px;font-size:11px;color:#5f7a70;text-align:center}');
-  w.document.write('@media print{button{display:none!important}}');
-  w.document.write('<\/style><\/head><body><div class="box">');
-
-  // Header: logo + clinic info left, date right
-  w.document.write('<div class="hdr">');
-  w.document.write('<div class="clinic-left">');
-  if(clinicLogo){
-    w.document.write('<img class="clinic-logo" src="'+clinicLogo+'" alt="Logo"/>');
-  } else {
-    w.document.write('<div style="font-size:40px;line-height:1">&#x1F9B7;<\/div>');
-  }
-  w.document.write('<div>');
-  w.document.write('<div class="clinic-name">'+clinicName+'<\/div>');
-  if(clinicDoctor) w.document.write('<div class="clinic-doctor">'+clinicDoctor+'<\/div>');
-  if(clinicQual)   w.document.write('<div class="clinic-qual">'+clinicQual+'<\/div>');
-  if(clinicPhone||clinicAddr){
-    w.document.write('<div class="clinic-contact">');
-    if(clinicPhone) w.document.write('&#x1F4DE; '+clinicPhone+'<br>');
-    if(clinicAddr)  w.document.write('&#x1F4CD; '+clinicAddr.replace(/\n/g,'<br>'));
-    w.document.write('<\/div>');
-  }
-  w.document.write('<\/div><\/div>');
-  w.document.write('<div style="text-align:right;font-size:12px;color:#5f7a70;white-space:nowrap"><strong>Rx Date:<\/strong><br>'+fd(rx.date)+'<\/div>');
-  w.document.write('<\/div>');
-
-  // Patient info
-  w.document.write('<div class="pi"><strong>Patient:<\/strong> '+p.firstName+' '+p.lastName+(ageStr?' &nbsp;|&nbsp; Age: '+ageStr:'')+(p.gender?' &nbsp;|&nbsp; '+p.gender:'')+'<br><strong>Mobile:<\/strong> '+(p.phone||'—')+'&nbsp;&nbsp;<strong>ID:<\/strong> '+p.id+(p.bloodGroup?'&nbsp;&nbsp;<strong>Blood Group:<\/strong> '+p.bloodGroup:'')+'<\/div>');
-  if(p.allergies) w.document.write('<div class="al">&#x26A0; Known allergy: '+p.allergies+'<\/div>');
-
-  // Rx body
-  w.document.write('<div class="rl">&#x211E; Prescription<\/div>');
-  if(rx.notes) w.document.write('<div class="rb">'+rx.notes.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'<\/div>');
-  else w.document.write('<div style="color:#5f7a70;margin-bottom:14px">No prescription details.<\/div>');
-
-  // Signature with doctor name
-  w.document.write('<div class="sig">');
-  w.document.write('<div>');
-  w.document.write('<div class="sig-name">'+(clinicDoctor||'Consulting Doctor')+'<\/div>');
-  if(clinicQual) w.document.write('<div class="sig-qual">'+clinicQual+'<\/div>');
-  w.document.write('<\/div>');
-  w.document.write('<div class="sl">Signature &amp; Stamp<\/div>');
-  w.document.write('<\/div>');
-
-  w.document.write('<\/div>');
-  w.document.write('<br><button onclick="window.print()" style="background:#1D9E75;color:#fff;border:none;padding:10px 24px;border-radius:6px;font-size:14px;cursor:pointer">&#x1F5A8; Print<\/button>');
-  w.document.write('<scr'+'ipt>window.onload=function(){window.print();}<'+'/scr'+'ipt>');
-  w.document.write('<\/body><\/html>');
-  w.document.close();
-}
-
-
-// ══ CLINIC SETTINGS ══
-function getClinicSettings(){
-  try{
-    var s=localStorage.getItem('dentocare_clinic');
-    return s?JSON.parse(s):{};
-  }catch(e){return {};}
-}
-function saveClinicSettings(){
-  var s={
-    name:document.getElementById('cfg-name').value.trim(),
-    doctor:document.getElementById('cfg-doctor').value.trim(),
-    qual:document.getElementById('cfg-qual').value.trim(),
-    phone:document.getElementById('cfg-phone').value.trim(),
-    addr:document.getElementById('cfg-addr').value.trim(),
-    logo:document.getElementById('cfg-logo').value.trim()
-  };
-  localStorage.setItem('dentocare_clinic',JSON.stringify(s));
-  var msg=document.getElementById('cfg-saved-msg');
-  if(msg){msg.style.display='block';setTimeout(function(){msg.style.display='none';},3000);}
-  toast('Clinic settings saved!');
-}
-function loadClinicSettings(){
-  var s=getClinicSettings();
-  ['name','doctor','qual','phone','addr','logo'].forEach(function(k){
-    var el=document.getElementById('cfg-'+k);
-    if(el&&s[k]) el.value=s[k];
-  });
-  previewLogo();
-}
-function previewLogo(){
-  var url=document.getElementById('cfg-logo')?document.getElementById('cfg-logo').value.trim():'';
-  var preview=document.getElementById('cfg-logo-preview');
-  var img=document.getElementById('cfg-logo-img');
-  if(url&&preview&&img){img.src=url;preview.style.display='block';}
-  else if(preview){preview.style.display='none';}
-}
-
-// INIT
-(async function(){
-  await testConn();
-  await loadAll();
-  rAll();
-  const bd=document.getElementById('bk-dt');
-  if(bd){const t=new Date().toISOString().split('T')[0];bd.value=t;bd.min=t;}
-  renderSlots();
-})();
 </script>
 </body>
 </html>
